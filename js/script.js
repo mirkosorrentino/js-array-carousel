@@ -37,24 +37,44 @@ nextBtn.addEventListener("click", function() {
     // aggiungo active a quello nuovo
     itemsArray[activeItemIndex].classList.add("active");
     // faccio scomparire il nextBtn all'ultima slide
-    if (activeItemIndex === itemsArray.length - 2) {
+    if (activeItemIndex === itemsArray.length - 1) {
         nextBtn.classList.add("hidden");
+    } else {
+        nextBtn.classList.remove("hidden");
+    }
+
+    // faccio scomparire il nextBtn all'ultima slide
+    if (activeItemIndex === 0) {
+        prevBtn.classList.add("hidden");
+    } else {
+        prevBtn.classList.remove("hidden");
     }
 })
 
 // Gestisco il click sul bottone prev
 prevBtn.addEventListener("click", function() {
-    if(activeItemIndex < (itemsArray.length - 1)) {
+    if(activeItemIndex <= (itemsArray.length - 1)) {
         // rimuovere active dalla slide corrente
         itemsArray[activeItemIndex].classList.remove("active");
     }
 
     // decremento activeIndex
     activeItemIndex--;
+
     // aggiungo active a quello nuovo
     itemsArray[activeItemIndex].classList.add("active");
+
     // faccio scomparire il nextBtn all'ultima slide
     if (activeItemIndex === 0) {
+        prevBtn.classList.add("hidden");
+    } else {
+        prevBtn.classList.remove("hidden");
+    }
+
+    // faccio scomparire il nextBtn all'ultima slide
+    if (activeItemIndex === itemsArray.length - 1) {
         nextBtn.classList.add("hidden");
+    } else {
+        nextBtn.classList.remove("hidden");
     }
 })
