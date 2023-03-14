@@ -30,7 +30,6 @@ prevBtn.classList.add("hidden");
 // Gestisco il click sul bottone next
 
 nextBtn.addEventListener("click", function() {
-    prevBtn.classList.remove("hidden");
     // rimuovere activeIndex dalla slide corrente
     itemsArray[activeItemIndex].classList.remove("active");
     // incremento activeIndex
@@ -38,7 +37,24 @@ nextBtn.addEventListener("click", function() {
     // aggiungo active a quello nuovo
     itemsArray[activeItemIndex].classList.add("active");
     // faccio scomparire il nextBtn all'ultima slide
-    if (activeItemIndex === itemsArray.length - 1) {
+    if (activeItemIndex === itemsArray.length - 2) {
+        nextBtn.classList.add("hidden");
+    }
+})
+
+// Gestisco il click sul bottone prev
+prevBtn.addEventListener("click", function() {
+    if(activeItemIndex < (itemsArray.length - 1)) {
+        // rimuovere active dalla slide corrente
+        itemsArray[activeItemIndex].classList.remove("active");
+    }
+
+    // decremento activeIndex
+    activeItemIndex--;
+    // aggiungo active a quello nuovo
+    itemsArray[activeItemIndex].classList.add("active");
+    // faccio scomparire il nextBtn all'ultima slide
+    if (activeItemIndex === 0) {
         nextBtn.classList.add("hidden");
     }
 })
