@@ -38,9 +38,9 @@ nextBtn.addEventListener("click", function() {
     itemsArray[activeItemIndex].classList.add("active");
     // faccio scomparire il nextBtn all'ultima slide
     if (activeItemIndex === itemsArray.length - 1) {
-        nextBtn.classList.add("hidden");
-    } else {
-        nextBtn.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
+} else {
+    nextBtn.classList.remove("hidden");
     }
 
     // faccio scomparire il nextBtn all'ultima slide
